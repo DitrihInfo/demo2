@@ -1,4 +1,6 @@
-#  AWS Instances and sec-group  for Demo2
+#---------------------------------------------------
+# Create AWS security group  for Demo2
+#--------------------------------------------------- 
 resource "aws_security_group" "demo2-sec-group" {
     name        = "demo2-sec-group"
     vpc_id = aws_vpc.mydemo2.id
@@ -27,43 +29,3 @@ resource "aws_security_group" "demo2-sec-group" {
     }
 }
 
-
-resource "aws_security_group" "sec-alb" {
-    name = "alb-security-group"
-
-    # Allow HTTP in
-    ingress {
-    from_port = 80
-    to_port = 80
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    }
-    
-#Allow HTTP in
-    egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-    }
-}
-
-resource "aws_security_group" "ssh-bastion" {
-    name = "bastion-security-group"
-
-    # Allow HTTP in
-    ingress {
-    from_port = 22
-    to_port = 22
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    }
-    
-#Allow HTTP in
-    egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-    }
-}

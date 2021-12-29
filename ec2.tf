@@ -1,8 +1,6 @@
 #---------------------------------------------------
 # Create AWS instance BastionA
 #---------------------------------------------------
-
-#  AWS instants BastionsrvA 
 resource "aws_instance" "BastionA" {
     ami           = var.ami
     instance_type = var.instance_type

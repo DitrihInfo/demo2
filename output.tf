@@ -4,11 +4,6 @@ output "LoadBalance_DNS_Name" {
   description = "Domain Name ALB"
 }
 
-/*
-output "public_ip" {
-  value = aws_instance.ec2_public.public_ip
-}
-*/
 output "websrv_privateA_ip" {
   value = aws_instance.websrv-privateA.private_ip
 }
